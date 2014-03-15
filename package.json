@@ -1,0 +1,45 @@
+{
+  "name": "wardenclyffe",
+  "version": "0.1.0",
+  "author": "STEM students <s-achronister@lwsd.org>",
+  "description": "Social Learning on the Web",
+  "contributors": [ 
+    {
+      "name": "Andrew Chronister",
+      "email": "s-achronister@lwsd.org"
+    },
+	{
+      "name": "Jay Tayade",
+      "email": "s-jtayade@lwsd.org"
+    },
+	{
+      "name": "Mrigank Bhardwaj",
+      "email": "s-mbhardwaj@lwsd.org"
+    } 
+  ],
+  "scripts": {
+    "start": "node ./index",
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app"
+  },
+  "main": "./index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chronister/wardenclyffe.git"
+  },
+  "keywords": [
+    "social",
+	"educational",
+	"bootstrap",
+    "http",
+    "server"
+  ],
+  "dependencies" : {
+    "express"   :  "*",
+	"jade"		:  "*"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
