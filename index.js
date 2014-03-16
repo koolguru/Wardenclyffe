@@ -11,11 +11,15 @@ app.set('views', __dirname + "/views");
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res, next) {
-	res.render("pages/overview");
+	res.render("pages/overview", {active: ""});
 });
 
 app.get('/about', function(req, res, next) {
-	res.render("pages/about");
+	res.render("pages/about", {active: "about"});
+});
+
+app.get('/ask', function(req, res, next) {
+	res.render("pages/ask", {active: "ask"});
 });
 
 app.use(function(err, req, res, next) {

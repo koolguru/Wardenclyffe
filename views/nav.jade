@@ -12,25 +12,9 @@ nav.navbar.navbar-default(role="navigation")
     //Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li.active
-            a(href="#") Link
-        li.dropdown
-          a.dropdown-toggle(href="#" data-toggle="dropdown") Dropdown 
-            b.caret
-          ul.dropdown-menu
-            li
-                a(href="#") Action
-            li
-                a(href="#") Another action
-            li
-                a(href="#") Something else here
-            li.divider
-            li
-                a(href="#") Separated link
-            li.divider
-            li
-                a(href="#") One more separated link
-        li 
+        li(class=("ask" == active ? ' active' : ''))
+            a(href="/ask") Ask a Question
+        li(class=("about" == active ? ' active' : ''))
             a(href="/about") About Us
       form.navbar-form.navbar-left(role="search")
         .form-group
@@ -44,6 +28,7 @@ nav.navbar.navbar-default(role="navigation")
             b.caret
           ul.dropdown-menu
             li
+                
                 a(href="#") Action
             li
                 a(href="#") Another action
