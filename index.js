@@ -11,7 +11,7 @@ app.set('views', __dirname + "/views");
 app.set('view engine', 'jade');
 
 app.get('/', function(req, res, next) {
-	res.render("bootstrap");
+	res.render("pages/overview");
 });
 
 app.use(function(err, req, res, next) {
