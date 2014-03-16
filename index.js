@@ -14,6 +14,10 @@ app.get('/', function(req, res, next) {
 	res.render("pages/overview");
 });
 
+app.get('/about', function(req, res, next) {
+	res.render("pages/about");
+});
+
 app.use(function(err, req, res, next) {
 	res.send(err.stack);
 });
