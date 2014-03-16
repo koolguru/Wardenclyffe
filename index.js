@@ -18,8 +18,8 @@ app.get('/about', function(req, res, next) {
 	res.render("pages/about", {active: "about"});
 });
 
-app.get('/question', function(req, res, next) {
-	res.render("pages/question", {active: "question"});
+app.get('/ask', function(req, res, next) {
+	res.render("pages/ask", {active: "ask"});
 });
 
 app.use(function(err, req, res, next) {
