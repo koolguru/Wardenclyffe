@@ -1,26 +1,25 @@
 extends ../bootstrap.jade
 
 block body
-    .starter-template
-        .container
-            .page-header
-                h1 About Us 
-                    small STEM Students
-            .col-md-8.col-md-offset-2
-                p.
-                    We&rsquo;re a small group of technology-focused, forward-looking individuals
-                    dedicated to the improvement of our STEM-oriented school and of the STEM
-                    community as a whole.
-                .list-group
-                    +bio("Andrew Chronister", "https://github.com/chronister/", "http://twitter.com/p0rtalplayer").
-                        Lead developer and UI designer, he spends his time tinkering with new
-                        technologies and presiding over the school&rsquo;s Programming Club. 
-                    +bio("Mrigank Bhardwaj", "https://github.com/mikkuthebhard/").
-                        Lorem ipsum dolor sit amet etc etc placeholder text and such to fill
-                        the space left in this gap. Biographies are neat and interesting too.
-                    +bio("Jay Tayade", "https://github.com/jaytayade").
-                        Lorem ipsum dolor sit amet etc etc placeholder text and such to fill
-                        the space left in this gap. Biographies are neat and interesting too.    
+    .container
+        .page-header
+            h1 About Us 
+                small STEM Students
+        .col-md-8.col-md-offset-2
+            p.
+                We&rsquo;re a small group of technology-focused, forward-looking individuals
+                dedicated to the improvement of our STEM-oriented school and of the STEM
+                community as a whole.
+            .list-group
+                +bio("Andrew Chronister", "https://github.com/chronister/", "http://twitter.com/p0rtalplayer").
+                    Lead developer and UI designer, he spends his time tinkering with new
+                    technologies and presiding over the school&rsquo;s Programming Club. 
+                +bio("Mrigank Bhardwaj", "https://github.com/mikkuthebhard/").
+                    Lorem ipsum dolor sit amet etc etc placeholder text and such to fill
+                    the space left in this gap. Biographies are neat and interesting too.
+                +bio("Jay Tayade", "https://github.com/jaytayade").
+                    Lorem ipsum dolor sit amet etc etc placeholder text and such to fill
+                    the space left in this gap. Biographies are neat and interesting too.    
                     
 mixin bio(name, github, twitter, facebook, googleplus)
     .list-group-item
