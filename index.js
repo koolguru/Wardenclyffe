@@ -15,11 +15,11 @@ app.get('/', function(req, res, next) {
 });
 
 app.get('/about', function(req, res, next) {
-	res.render("pages/about", {active: "about"});
+	res.render("pages/about", {active: "about", caption: "About us"});
 });
 
 app.get('/ask', function(req, res, next) {
-	res.render("pages/ask", {active: "ask"});
+	res.render("pages/ask", {active: "ask", caption: "Ask a Question"});
 });
 
 app.use(function(err, req, res, next) {

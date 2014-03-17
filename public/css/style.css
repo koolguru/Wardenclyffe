@@ -1,0 +1,7 @@
+/*Goes on top of bootstrap css*/
+
+.input-group.input-group-primary .input-group-addon {
+	color: #FFF;
+	background-color: #428BCA;
+	border-color: #428BCA;
+}
