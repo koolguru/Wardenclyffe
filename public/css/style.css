@@ -7,7 +7,12 @@
 }
 
 body {
-    background-image:url("/images/bg2.jpg");
+    background-image:url("/img/bg2.jpg");
     background-repeat:repeat-none;
     background-attachment:scroll;
+}
+
+body > .container {
+    background-color:white;
+    box-shadow: 0px 0px 5px #333;
 }
