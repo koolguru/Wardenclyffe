@@ -7,15 +7,23 @@ block body
         .container
             form#question-entry
                 .row
-                    .input-group.input-group-lg.col-sm-8.pull-left
+                    .input-group.input-group-lg.input-group-primary.col-sm-8.pull-left
                         span.input-group-addon Question: 
                         input.form-control(type="text" placeholder="What is..." name="title")
                 br
                 br
                 .row
                     .input-group.col-sm-8
-                        .panel.panel-default
+                        .panel.panel-primary
                             .panel-heading
-                                h3.panel-title(style="font-size:18px; color:#555") Description:
+                                h3.panel-title(style="font-size:18px;") Description:
                             .panel-body(style="padding:0px;")
                                 textarea.form-control(rows="12" name="description" style="resize:none;")
+                .row
+                    .input-group.input-group-lg.col-sm-8
+                        span.input-group-addon Tags: 
+                        input.form-control(type="text" placeholder="science, technology..." name="title")    
+                        
+                        
+                        
+                        
