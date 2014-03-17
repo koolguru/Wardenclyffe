@@ -5,3 +5,9 @@
 	background-color: #428BCA;
 	border-color: #428BCA;
 }
+
+body {
+    background-image:url("/images/bg2.jpg");
+    background-repeat:repeat-none;
+    background-attachment:scroll;
+}

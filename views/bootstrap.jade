@@ -6,17 +6,17 @@ html
     meta(name="viewport" content="width=device-width, initial-scale=1")
     - caption = caption || "Social Learning on the Web"
     title Wardenclyffe - #{caption}
-	
-    include /headerstyle
+    
+    include header/style
     block style
     
     include header/script
     block script
-	
+
   body
     include nav
     block nav
     block body
 
-    include post-script
-    block postscript
+    include postload
+    block postload
