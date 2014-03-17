@@ -9,7 +9,7 @@ block body
                 .row
                     .input-group.input-group-lg.input-group-primary.col-sm-8.pull-left
                         span.input-group-addon Question: 
-                        input.form-control(type="text" placeholder="What is..." name="title")
+                        input#title.form-control(type="text" placeholder="What is..." name="title")
                 br
                 br
                 .row
@@ -18,11 +18,11 @@ block body
                             .panel-heading
                                 h3.panel-title(style="font-size:18px;") Description:
                             .panel-body(style="padding:0px;")
-                                textarea.form-control(rows="12" name="description" style="resize:none;")
+                                textarea#description.form-control(rows="12" name="description" style="resize:none;")
                 .row
                     .input-group.input-group-lg.input-group-primary.col-sm-8
                         span.input-group-addon Tags: 
-                        input.form-control(type="text" placeholder="science, technology..." name="title")    
+                        input#tags.form-control.autocomplete-tags(type="text" placeholder="science, technology..." name="title")    
                         
                         
                         

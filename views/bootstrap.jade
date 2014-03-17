@@ -7,16 +7,13 @@ html
     - caption = caption || "Social Learning on the Web"
     title Wardenclyffe - #{caption}
     
-    include header/style
+    include style
     block style
     
-    include header/script
+    include script
     block script
 
   body
     include nav
     block nav
     block body
-
-    include postload
-    block postload

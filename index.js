@@ -22,6 +22,8 @@ app.get('/ask', function(req, res, next) {
 	res.render("pages/ask", {active: "ask", caption: "Ask a Question"});
 });
 
+app.get('/tags/:tag', function(
+
 app.use(function(err, req, res, next) {
 	res.send(err.stack);
 });
