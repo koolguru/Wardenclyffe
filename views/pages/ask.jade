@@ -1,0 +1,21 @@
+extends ../bootstrap.jade
+
+block body
+    .container
+        .page-header
+            h1 Ask a Question
+        .container
+            form#question-entry
+                .row
+                    .input-group.input-group-lg.col-sm-8.pull-left
+                        span.input-group-addon Question: 
+                        input.form-control(type="text" placeholder="What is..." name="title")
+                br
+                br
+                .row
+                    .input-group.col-sm-8
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title(style="font-size:18px; color:#555") Description:
+                            .panel-body(style="padding:0px;")
+                                textarea.form-control(rows="12" name="description" style="resize:none;")
