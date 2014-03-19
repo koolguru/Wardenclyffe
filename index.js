@@ -2,30 +2,30 @@
  * Module Dependencies
 */
 var express = require('express');
+var mongoose = require('mongoose');
+var routes = require('./routes');
 var pub = __dirname + "/public";
+
 //setup middleware
 var app = express();
 app.use(express.static(pub));
 app.set('views', __dirname + "/views");
-//set default template engine to jade
-app.set('view engine', 'jade');
+app.set('view engine', 'jade'); //set default template engine to jade
 
-app.get('/', function(req, res, next) {
-	res.render("pages/overview", {active: ""});
-});
+//initialize mongoose
+var uri = 'mongodb://localhost/wardenclyffe';
+global.db = mongoose.createConnection(uri);
+var Schema = mongoose.Schema;
 
-app.get('/about', function(req, res, next) {
-	res.render("pages/about", {active: "about", caption: "About us"});
-});
+//Routes
+app.get('/', routes.home);
+app.get('/about', routes.about);
+app.get('/ask', routes.ask);
+app.get('/tags', routes.tags);
 
-app.get('/ask', function(req, res, next) {
-	res.render("pages/ask", {active: "ask", caption: "Ask a Question"});
-});
-
-app.get('/tags/:tag', function(
-
+//Error handling
 app.use(function(err, req, res, next) {
-	res.send(err.stack);
+	res.send(JSON.stringify(err));
 });
 
 app.listen(3000);

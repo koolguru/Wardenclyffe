@@ -36,7 +36,8 @@
   ],
   "dependencies" : {
     "express"   :  "*",
-	"jade"		:  "*"
+	"jade"		:  "*",
+    "mongoose"  :  "*"
   },
   "license": "MIT",
   "engines": {
