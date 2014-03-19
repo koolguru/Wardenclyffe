@@ -25,7 +25,9 @@ app.get('/tags', routes.tags);
 
 //Error handling
 app.use(function(err, req, res, next) {
-	res.send(JSON.stringify(err));
+    res.json(err.stack);
+	//res.json(err);
+    //res.json(err.stack);
 });
 
 app.listen(3000);

@@ -15,3 +15,4 @@ exports.ask = function(req, res, next) {
 exports.tags = function(req, res, next) {
     res.json(["chem", "calc", "english", "history", "psych"]);
 }
+
