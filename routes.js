@@ -1,4 +1,11 @@
 
+var Schema = require('mongoose').Schema;
+var questionSchema = Schema({
+    title: String,
+    description: String,
+    date: { type: Date, default: Date.now },
+    tags: Array
+});
 
 exports.home = function(req, res, next) {
 	res.render("pages/overview", {active: ""});
@@ -9,7 +16,10 @@ exports.about = function(req, res, next) {
 }
 
 exports.ask = function(req, res, next) {
-	res.render("pages/ask", {active: "ask", caption: "Ask a Question"});
+    if (req.body !== {}) {
+        
+    }
+    else { res.render("pages/ask", {active: "ask", caption: "Ask a Question"}); }
 }
 
 exports.tags = function(req, res, next) {

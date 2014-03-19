@@ -9,13 +9,13 @@ var pub = __dirname + "/public";
 //setup middleware
 var app = express();
 app.use(express.static(pub));
+app.use(express.bodyParser());
 app.set('views', __dirname + "/views");
 app.set('view engine', 'jade'); //set default template engine to jade
 
 //initialize mongoose
 var uri = 'mongodb://localhost/wardenclyffe';
 global.db = mongoose.createConnection(uri);
-var Schema = mongoose.Schema;
 
 //Routes
 app.get('/', routes.home);
