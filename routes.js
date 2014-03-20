@@ -23,7 +23,10 @@ exports.ask = function(req, res, next) {
 exports.question = function(req, res, next) {
     if (req.params.id != "") {
         //render tba question page
-        res.send("Grapes");
+        Question.findById(req.params.id, function (err, q) {
+            if (err) res.json(err)
+            res.json(q);
+        });
     }
 }
 
