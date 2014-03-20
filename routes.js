@@ -3,8 +3,8 @@ var Schema = require('mongoose').Schema;
 var questionSchema = Schema({
     title: String,
     description: String,
-    date: { type: Date, default: Date.now },
-    tags: Array
+    tags: Array,
+    date: { type: Date, default: Date.now() }    
 });
 var Question = db.model('Question', questionSchema);
 
@@ -22,10 +22,14 @@ exports.ask = function(req, res, next) {
 
 exports.submitq = function (req, res, next) {
     if (Object.keys(req.body).length > 0) {
-        res.json({
+        var q = new Question({
             title: req.body.title,
             description: req.body.description,
-            tags: req.body.tags.replace(/ /g, '').split(',')
+            tags: req.body.tags.split(',').map(Function.prototype.call, String.prototype.trim),
+            date: Date.now()
+        }).save(function (err, user) {
+            if (err) res.json(err);
+            res.redirect('question');
         });
     }
 }
