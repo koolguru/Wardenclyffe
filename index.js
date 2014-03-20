@@ -3,7 +3,6 @@
 */
 var express = require('express');
 var mongoose = require('mongoose');
-var routes = require('./routes');
 var pub = __dirname + "/public";
 
 //setup middleware
@@ -18,16 +17,17 @@ var uri = 'mongodb://localhost/wardenclyffe';
 global.db = mongoose.createConnection(uri);
 
 //Routes
+var routes = require('./routes');
 app.get('/', routes.home);
 app.get('/about', routes.about);
 app.get('/ask', routes.ask);
+app.post('/ask', routes.submitq);
 app.get('/tags', routes.tags);
 
 //Error handling
 app.use(function(err, req, res, next) {
     res.json(err.stack);
 	//res.json(err);
-    //res.json(err.stack);
 });
 
 app.listen(3000);
