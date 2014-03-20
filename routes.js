@@ -20,6 +20,13 @@ exports.ask = function(req, res, next) {
     res.render("pages/ask", {active: "ask", caption: "Ask a Question"});
 }
 
+exports.question = function(req, res, next) {
+    if (req.params.id != "") {
+        //render tba question page
+        res.send("Grapes");
+    }
+}
+
 exports.submitq = function (req, res, next) {
     if (Object.keys(req.body).length > 0) {
         var q = new Question({

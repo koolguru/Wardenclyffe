@@ -22,6 +22,7 @@ app.get('/', routes.home);
 app.get('/about', routes.about);
 app.get('/ask', routes.ask);
 app.post('/ask', routes.submitq);
+app.get('/question/:id', routes.question);
 app.get('/tags', routes.tags);
 
 //Error handling
