@@ -34,9 +34,9 @@ exports.submitq = function (req, res, next) {
             description: req.body.description,
             tags: req.body.tags.split(',').map(Function.prototype.call, String.prototype.trim),
             date: Date.now()
-        }).save(function (err, user) {
+        }).save(function (err, q) {
             if (err) res.json(err);
-            res.redirect('question');
+            res.redirect('/question/' + q._id);
         });
     }
 }
