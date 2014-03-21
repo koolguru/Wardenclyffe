@@ -1,0 +1,12 @@
+extends ../bootstrap.jade
+
+block body
+    .container
+        .page-header
+            h1 #{q.title}
+        .container
+            .row.question-body
+                .description.col-sm-8 #{q.description}
+                .tags.col-sm-8 
+                    each tag in tags
+                        .tag #{tag}

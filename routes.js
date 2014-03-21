@@ -24,8 +24,9 @@ exports.question = function(req, res, next) {
     if (req.params.id != "") {
         //render tba question page
         Question.findById(req.params.id, function (err, q) {
-            if (err) res.json(err)
-            res.json(q);
+            //if (err) res.json(err)
+            //res.json(q);
+            res.render("pages/question", {active: "question", caption: q.title, q:q});
         });
     }
 }
