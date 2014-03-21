@@ -23,9 +23,11 @@ app.get('/about', routes.about);
 app.get('/ask', routes.ask);
 app.post('/ask', routes.submitq);
 app.get('/question/:id', routes.question);
-app.get('/tags', routes.tags);
+app.get('/tags', routes.tagjson); //Might drop? IDK
+//TBA: /tags/recent, tags/popular, tags/unanswered with /json subdirs
+app.get('/tag', routes.tagjson);
 app.get('/tag/:tag', routes.tagsearch);
-app.get('/tag', routes.tagsearch);
+app.get('/tag/:tag/json', routes.tagjson);
 
 //Error handling
 app.use(function(err, req, res, next) {

@@ -50,16 +50,23 @@ exports.tags = function(req, res, next) {
 }
 
 exports.tagjson = function(req, res, next) {
+    req.query.json = true;
+    exports.tagsearch(req, res, next);
+}
+
+exports.tagsearch = function(req, res, next) {
     if (req.params.tag) {
         Question.find({ tags: { $all: [req.params.tag] } }).setOptions({limit:10, lean:true}).exec(function(err, questions) {
             if (err) res.json(err);
-            res.json(questions);
+            if (req.query.json) res.json(questions);
+            else res.send(questions); //change to render 
         });
     }
     else {
         Question.find({}).setOptions({limit:10, lean:true}).exec(function(err, questions) {
             if (err) res.json(err);
-            res.json(questions);
+            if (req.query.json) res.json(questions);
+            else res.send(questions); //change to render
         });
     }
 }
