@@ -59,14 +59,14 @@ exports.tagsearch = function(req, res, next) {
         Question.find({ tags: { $all: [req.params.tag] } }).setOptions({limit:10, lean:true}).exec(function(err, questions) {
             if (err) res.json(err);
             if (req.query.json) res.json(questions);
-            else res.send(questions); //change to render 
+            else res.render("pages/tags", {title: req.params.tag, results: questions, tag: req.params.tag});  
         });
     }
     else {
         Question.find({}).setOptions({limit:10, lean:true}).exec(function(err, questions) {
             if (err) res.json(err);
             if (req.query.json) res.json(questions);
-            else res.send(questions); //change to render
+            else res.render("pages/tags", {title: "Tags", results: questions});
         });
     }
 }

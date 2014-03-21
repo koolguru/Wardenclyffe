@@ -9,6 +9,6 @@ block body
                 .description.col-sm-8 #{q.description}
                 .tags.col-sm-8 
                     each tag in q.tags
-                        span.tag.badge(style="padding:5px 10px;") #{tag}  
+                        a.tag.badge(style="padding:5px 10px;", href="/tag/"+tag) #{tag}  
                         
                 
