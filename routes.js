@@ -71,5 +71,8 @@ exports.tagsearch = function(req, res, next) {
     }
 }
 
-
+exports.answer = function(req, res, next) {
+    //Functionality TBA
+    res.json(req.body);
+}
 
