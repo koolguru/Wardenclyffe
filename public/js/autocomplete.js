@@ -17,7 +17,7 @@ var acTags = new Bloodhound({
 // kicks off the loading/processing of `local` and `prefetch`
 acTags.initialize();
 
-$("autocomplete-tags").typeahead({
+$(".autocomplete-tags").typeahead({
     hint:true,
     highlight:true,
     minLength:2

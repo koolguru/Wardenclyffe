@@ -49,3 +49,20 @@ exports.tags = function(req, res, next) {
     res.json(["chem", "calc", "english", "history", "psych"]);
 }
 
+exports.tagjson = function(req, res, next) {
+    if (req.params.tag) {
+        Question.find({ tags: { $all: [req.params.tag] } }).setOptions({limit:10, lean:true}).exec(function(err, questions) {
+            if (err) res.json(err);
+            res.json(questions);
+        });
+    }
+    else {
+        Question.find({}).setOptions({limit:10, lean:true}).exec(function(err, questions) {
+            if (err) res.json(err);
+            res.json(questions);
+        });
+    }
+}
+
+
+

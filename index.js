@@ -24,6 +24,8 @@ app.get('/ask', routes.ask);
 app.post('/ask', routes.submitq);
 app.get('/question/:id', routes.question);
 app.get('/tags', routes.tags);
+app.get('/tag/:tag', routes.tagsearch);
+app.get('/tag', routes.tagsearch);
 
 //Error handling
 app.use(function(err, req, res, next) {
