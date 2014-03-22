@@ -3,12 +3,29 @@ extends ../bootstrap.jade
 block body
     .container
         .page-header
-            h1 #{q.title}
-        .container
-            .row.question-body
-                .description.col-sm-8 #{q.description}
-                .tags.col-sm-8 
-                    each tag in q.tags
-                        a.tag.badge(style="padding:5px 10px;", href="/tag/"+tag) #{tag}  
-                        
-                
+            h2 #{q.title}
+        .row.question-body
+            .description.col-sm-8 #{q.description}
+            br
+            br
+            .tags.col-sm-8 
+                each tag in q.tags
+                    a.tag.badge(style="margin:5px 5px 0px 5px;", href="/tag/"+tag) #{tag}  
+                hr(style="margin-bottom:0px;")          
+        
+        h3 Answers
+        br
+        .answers(style="padding-left:20px;")
+            //Todo: Iterate over answers
+            p No Answers.
+            br
+            form.answer-form
+                .row
+                    .input-group.col-sm-10
+                        .panel.panel-default
+                            .panel-heading
+                                h3.panel-title(style="font-size:18px;") Answer This Question:
+                            .panel-body(style="padding:0px;")
+                                div#answer-text.form-control.editor-wysiwyg(rows="12" name="description" style="resize:none;")
+                                
+                                

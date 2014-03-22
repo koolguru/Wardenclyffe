@@ -12,6 +12,15 @@ block script
     //Include all compiled plugins
     script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")
     
+    //WYSIWYG editor
+    script(type="text/javascript" src="/js/markdown.min.js")
+    script(type="text/javascript" src="/js/bootstrap-markdown.js")
+    
     //Autocomplete boxes
     script(type="text/javascript" src="/js/typeahead.bundle.js")
     script(type="text/javascript" src="/js/autocomplete.js")
+    
+    script(type="text/javascript").
+        $(document).ready(function() {
+            $(".editor-wysiwyg").markdown({iconlibrary:'fa'});
+        });

@@ -20,3 +20,8 @@ body > .container {
     margin-top:50px;
     min-height:100vh;
 }
+
+.editor-wysiwyg {
+    overflow:scroll;
+    height:300px;
+}
