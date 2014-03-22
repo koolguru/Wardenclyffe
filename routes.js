@@ -1,12 +1,19 @@
 
 var Schema = require('mongoose').Schema;
-var questionSchema = Schema({
-    title: String,
-    description: String,
-    tags: Array,
-    date: { type: Date, default: Date.now() }    
+var QuestionSchema = Schema({
+    title       : String,
+    description : String,
+    tags        : Array,
+    date        : { type: Date, default: Date.now() },
+    answers     : [{ type: Schema.Types.ObjectId, ref: 'Answer' }]
 });
-var Question = db.model('Question', questionSchema);
+var AnswerSchema = Schema({
+    _question   : { type: Schema.Types.ObjectId, ref:'Question' },
+    description : String,
+    date        : { type: Date, default: Date.now() }
+});
+var Question = db.model('Question', QuestionSchema);
+var Answer = db.model('Answer', AnswerSchema);
 
 exports.home = function(req, res, next) {
 	res.render("pages/overview", {active: ""});
@@ -23,9 +30,9 @@ exports.ask = function(req, res, next) {
 exports.question = function(req, res, next) {
     if (req.params.id != "") {
         //render tba question page
-        Question.findById(req.params.id, function (err, q) {
-            //if (err) res.json(err)
-            //res.json(q);
+        Question.findById(req.params.id, function (err, q) {  
+            if (err) res.json(err)
+            q.populate('answers');
             res.render("pages/question", {active: "question", caption: q.title, q:q});
         });
     }
@@ -37,10 +44,11 @@ exports.submitq = function (req, res, next) {
             title: req.body.title,
             description: req.body.description,
             tags: req.body.tags.split(',').map(Function.prototype.call, String.prototype.trim),
-            date: Date.now()
+            date: Date.now(),
+            answers: []
         }).save(function (err, q) {
             if (err) res.json(err);
-            res.redirect('/question/' + q._id);
+            else res.redirect('/question/' + q._id);
         });
     }
 }
@@ -79,7 +87,20 @@ exports.comments = function(req, res, next) {
 }
 
 exports.answer = function(req, res, next) {
-    //Functionality TBA
-    res.json(req.body.description); //Expects POST request
+    if (req.params.id) {
+        var a = new Answer({
+            _question: req.params.id,
+            description: req.body.description,
+            date: Date.now()
+        }).save(function (err, a) {
+            if (err) res.json(err);
+            res.redirect('/question/' + a._question);
+        }); 
+    }
 }
+
+exports.answerjson = function(req, res, next) {
+    
+}
+
 
