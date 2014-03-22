@@ -84,7 +84,7 @@ exports.tagjson = function(req, res, next) {
 }
 
 exports.tagsearch = function(req, res, next) {
-    req.params.tag = (req.query.tag || req.body.tag)
+    req.params.tag = (req.query.q || req.body.tag)
     exports.tag(req, res, next);
 }
 
