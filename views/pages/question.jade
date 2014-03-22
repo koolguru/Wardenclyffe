@@ -17,7 +17,13 @@ block body
         br
         .answers(style="padding-left:20px;")
             //Todo: Iterate over answers
-            p No Answers.
+            if q.answers
+                each answer in q.answers
+                    .answer
+                        .description
+                            != '<p>code</p>'
+            else
+                p No answers.
             br
             form.answer-form(method="POST" action="/question/" + q.id + "/answer")
                 .row
