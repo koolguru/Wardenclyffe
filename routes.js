@@ -33,6 +33,7 @@ exports.question = function(req, res, next) {
         Question.findById(req.params.id, function (err, q) {  
             if (err) res.json(err)
             q.populate('answers');
+            //res.json(q);
             res.render("pages/question", {active: "question", caption: q.title, q:q});
         });
     }
@@ -94,7 +95,19 @@ exports.answer = function(req, res, next) {
             date: Date.now()
         }).save(function (err, a) {
             if (err) res.json(err);
-            res.redirect('/question/' + a._question);
+            else {
+                q = Question.find({ _id: req.params.id}, function(err, questions) {
+                    q = questions[0];
+                    if (q.answers)
+                        q.answers.push(a._id);
+                    else 
+                        q.answers = [a._id];
+                    q.save(function (err, q) {
+                        if (err) res.json(err);
+                        else res.redirect('/question/' + q._id);
+                    });
+                });
+            }
         }); 
     }
 }
