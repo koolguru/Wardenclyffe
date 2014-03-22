@@ -22,8 +22,9 @@ app.get('/', routes.home);
 app.get('/about', routes.about);
 app.get('/ask', routes.ask);
 app.post('/ask', routes.submitq);
-app.post('/answer', routes.answer);
 app.get('/question/:id', routes.question);
+app.get('/question/:id/comments', routes.comments);
+app.post('/question/:id/answer', routes.answer);
 //TBA: /question/:id/upvote, /question/:id/downvote 
 // --> Have these require a POST parameter which, if missing, shows the 404 page
 // --> Same for /ask 
