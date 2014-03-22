@@ -10,24 +10,38 @@ block body
             br
             .tags.col-sm-8 
                 each tag in q.tags
-                    a.tag.badge(style="margin:5px 5px 0px 5px;", href="/tag/"+tag) #{tag}  
-                hr(style="margin-bottom:0px;")          
+                    a.tag.badge(style="margin:10px 5px;", href="/tag/"+tag) #{tag}  
+            .meta.col-sm-8.text-right.small
+                span.date.text-muted
+                    | at 
+                    strong=q.date.toLocaleTimeString()
+                    |  on 
+                    strong=q.date.toLocaleDateString()
+                hr(style="margin:0px;")          
         
         h3 Answers
         br
-        .answers(style="padding-left:20px;")
+        .row.answers(style="padding-left:20px;")
             //Todo: Iterate over answers
             if q.answers
-                each answer in q.answers
-                    .answer
-                        .description
-                            != '<p>code</p>'
+                each answer in answers
+                    .answer.col-sm-8
+                        .description #{answer.description}
+                        br
+                        .meta.text-right.small
+                            span.date.text-muted
+                                | at 
+                                strong=answer.date.toLocaleTimeString()
+                                |  on 
+                                strong=answer.date.toLocaleDateString()
+                            hr(style="margin-top: 0px")  
+                            br
             else
                 p No answers.
             br
             form.answer-form(method="POST" action="/question/" + q.id + "/answer")
                 .row
-                    .input-group.col-sm-10
+                    .input-group.col-sm-9
                         .panel.panel-default
                             .panel-heading
                                 h3.panel-title(style="font-size:18px;") Answer This Question:

@@ -16,10 +16,11 @@ nav.navbar.navbar-default.navbar-fixed-top(role="navigation")
             a(href="/ask") Ask a Question
         li(class=("about" == active ? ' active' : ''))
             a(href="/about") About Us
-      form.navbar-form.navbar-left(role="search")
-        .form-group
-          input.form-control(type="text" placeholder="Search")
-        button.btn.btn-default(type="submit") Submit
+      form.navbar-form.navbar-left(role="search", action="/tagsearch")
+        .input-group
+          input.form-control(type="text" placeholder="Search" name="query")
+          span.input-group-btn
+            button.btn.btn-default(type="submit") Submit
       ul.nav.navbar-nav.navbar-right
         li
             a(href="#") Link
