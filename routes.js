@@ -80,6 +80,6 @@ exports.comments = function(req, res, next) {
 
 exports.answer = function(req, res, next) {
     //Functionality TBA
-    res.json(req.body); //Expects POST request
+    res.json(req.body.description); //Expects POST request
 }
 
