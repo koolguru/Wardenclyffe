@@ -31,8 +31,9 @@ app.post('/question/:id/answer', routes.answer);
 app.get('/tags', routes.tagjson); //Might drop? IDK
 //TBA: /tags/recent, tags/popular, tags/unanswered with /json subdirs
 app.get('/tag', routes.tagjson);
-app.get('/tag/:tag', routes.tagsearch);
+app.get('/tag/:tag', routes.tag);
 app.get('/tag/:tag/json', routes.tagjson);
+app.get('/tag/tagsearch', routes.tagsearch);
 
 //Error handling
 app.use(function(err, req, res, next) {
