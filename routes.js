@@ -71,8 +71,15 @@ exports.tagsearch = function(req, res, next) {
     }
 }
 
+exports.comments = function(req, res, next) {
+    //Check if question comments or answer comments...and which ids
+    //This one will always return JSON, as it will be part of a larger page.
+    //Perhaps also add a field for min # and max # for dynamic retrieval
+    res.json(req.params); //Expects GET request
+}
+
 exports.answer = function(req, res, next) {
     //Functionality TBA
-    res.json(req.body);
+    res.json(req.body); //Expects POST request
 }
 
