@@ -32,9 +32,12 @@ exports.question = function(req, res, next) {
         //render tba question page
         Question.findById(req.params.id, function (err, q) {  
             if (err) res.json(err)
-            q.populate('answers');
-            //res.json(q);
-            res.render("pages/question", {active: "question", caption: q.title, q:q});
+            else {
+                Answer.find({ _question:req.params.id }, function(err, answers) {
+                    if (err) res.json(err)
+                    else res.render("pages/question", {active: "question", caption: q.title, q:q, answers:answers});
+                });
+            }
         });
     }
 }
