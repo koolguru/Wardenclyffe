@@ -33,7 +33,7 @@ app.get('/tags', routes.tagjson); //Might drop? IDK
 app.get('/tag', routes.tagjson);
 app.get('/tag/:tag', routes.tag);
 app.get('/tag/:tag/json', routes.tagjson);
-app.get('/tag/tagsearch', routes.tagsearch);
+app.get('/tagsearch', routes.tagsearch);
 
 //Error handling
 app.use(function(err, req, res, next) {
