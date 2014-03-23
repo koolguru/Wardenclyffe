@@ -21,6 +21,12 @@ body > .container {
     min-height:100vh;
 }
 
+body > .container > .jumbotron {
+    width:100%;
+    margin:0px;
+    background-color:transparent;
+}
+
 .editor-wysiwyg {
     overflow:scroll;
     height:300px;

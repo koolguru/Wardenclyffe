@@ -10,7 +10,7 @@ block body
             br
             .tags.col-sm-8 
                 each tag in q.tags
-                    a.tag.badge(style="margin:10px 5px;", href="/tag/"+tag) #{tag}  
+                    a.tag.badge(style="margin:10px 5px;", href="/tag/"+escape(tag)) #{tag}  
             .meta.col-sm-8.text-right.small
                 span.date.text-muted
                     | at 

@@ -1,14 +1,10 @@
 extends ../bootstrap.jade
 
 block body
-    .jumbotron
-        .container
-            .col-md-4
-                img.img-responsive.pull-left(width="600" src="/img/tower.svg")
-            .col-md-8
-                h1 Wardenclyffe   
-                    br
-                    small Social Learning on the Web
-                p
-                    a.btn.btn-primary.btn-lg(role="button" style="margin:0px 15px;") Learn more
-                    a.btn.btn-primary.btn-lg(role="button" style="margin:0px 15px;") Get Started
+    .container
+        .jumbotron
+            img.img-responsive.center-block(width="8000" src="/img/logo.svg")
+            .row
+                a.btn.btn-primary.btn-lg.col-sm-5(role="button" href="#info") Learn more
+                a.btn.btn-primary.btn-lg.col-sm-5.col-sm-offset-2(role="button" href="/ask") Get Started
+        hr
